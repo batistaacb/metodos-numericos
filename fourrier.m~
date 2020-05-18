@@ -1,0 +1,19 @@
+% Segundo Exercicio Avaliativo da Disciplina de Circuitos Eletricos 2
+% Professor: Humberto Mazzini
+% Curso: Engenharia Eletrica       Periodo:Quarto         Turno: Integral
+% Aluno:Priscila Soares Lima     Matricula:1109500??
+close all;clear all;clc                         
+wo_t=0:1e-3:2*pi;             % omega_zero_t variando de zero ate dois pi.
+n=input('Entre com um numero inteiro  de ondas senoidais a ser somadas :');
+x=0;                          % variavel acumulativa para o laço temporal.
+% =========================================================================
+%                   Efetuando calculo 
+for k=1:n 
+      x=x-(-1)^k*(sin(wo_t*k))/k;
+end
+y_t=2/pi*x;            % recebe constante multiplicada ao somatorio.
+% =========================================================================
+figure(1),plot(wo_t,y_t,'-r','Linewidth',1);% plotando gráfico.
+xlabel('wo [domínio]','Fontsize',16);     % rotulo no eixo das abcissas.   
+ylabel('y(wo_t) [imagem]','Fontsize',16); % rotulo no eixo das ordenadas.
+title(['soma de',' ',num2str(n),' ','ondas senoidais']);% titulo.
